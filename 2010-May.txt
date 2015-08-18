@@ -1,0 +1,278 @@
+From andreas at manticore-projects.com  Wed May 19 13:14:32 2010
+From: andreas at manticore-projects.com (Andreas Reichel)
+Date: Wed, 19 May 2010 13:14:32 +0200
+Subject: [Manticore-trader] manticore-trader version 0.9.9 released
+Message-ID: <1274267672.3107.3.camel@dhcppc0>
+
+Dear All!
+
+This new version introduces Trailing Stop Loss and Automatic Take
+Profit, which can be activated inside the position dialog.
+
+Furthermore on the download-page there are packages with the
+intraday-quotes of the last 7 days for some instruments. You can import
+these into the manticore-trader in order to trade bigger time frames.
+Quotes for different instruments or time frames will be provided on
+demand.
+
+For best performance, we changed to the free database system H2 (see
+also the Changelog).
+
+Happy trades using Version 0.9.9.
+
+Best regards
+Andreas
+
+
+
+
+
+
+From m.p.winkelmann at gmail.com  Thu May 20 21:01:11 2010
+From: m.p.winkelmann at gmail.com (Martin Winkelmann)
+Date: Thu, 20 May 2010 21:01:11 +0200
+Subject: [Manticore-trader] manticore-trader version 0.9.9
+Message-ID: <AANLkTimUUB6lllXMlo3NWUNsAeYMMTUfmsXMPROGmSgI@mail.gmail.com>
+
+Hello Andreas,
+
+I am delighted to see, that the automatic take profit made it into the
+trader already at this point. I am eager to check it out and test it.
+
+The only problem is, that 0.9.9 wont let me pass the Database connection
+settings window. When I hit the login button, nothing happens. I also
+changed the driver selection to no effect.
+
+So far, I always simply unpacked the binaries and double clicked on the
+manticore-trader.jar. Do I have to recompile it or do something else? I am
+using Windows XP SP3. Java is Version 6.20.
+
+Best regards,
+Martin
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/manticore-trader/attachments/20100520/b9427f21/attachment.html>
+
+From andreas at manticore-projects.com  Fri May 21 03:24:13 2010
+From: andreas at manticore-projects.com (Andreas Reichel)
+Date: Fri, 21 May 2010 03:24:13 +0200
+Subject: [Manticore-trader] manticore-trader version 0.9.9 released
+In-Reply-To: <AANLkTinPfFhNINTks5WAYqdCD6GRdsRxG1QcSlZNWg4I@mail.gmail.com>
+References: <1274267672.3107.3.camel@dhcppc0>
+	<AANLkTinPfFhNINTks5WAYqdCD6GRdsRxG1QcSlZNWg4I@mail.gmail.com>
+Message-ID: <1274405053.3107.40.camel@dhcppc0>
+
+Dear Martin,
+
+this problem is related to the change of the database system.
+manticore-trader uses H2 now, which is much (much, much) faster than
+HSQLDB. I tested it carefully and was very impressed.
+
+Of course there is now a problem, when you use your saved settings.
+Please adjust the database-settings to:
+
+classname = org.h2.JDBCDriver
+connectionUrlStr = jdbc:h2:file:${user.home}manticore-trader2
+
+Replace ${user.home} with your home directory or any other directory,
+where you like to store the database.
+
+If this is too complicated, please just move the file settings.xml in
+your home-directory into settings.xml.bak and start the program then.
+It will use the predefined settings, which you can save via the file
+menu.
+
+If it still does not work, please send me the output of the shell:
+* open a shell (e.g. command.com)
+* change to the directory where you have manticore-trader.jar
+* run java -jar manticore-trader.jar there
+* copy the output of the shell into the e-mail
+
+Thank you and best regards.
+Andreas
+
+BTW: I released version 0.9.9.1 yesterday, which fixes a small but nasty
+bug. Give it a try please.
+
+Am Donnerstag, den 20.05.2010, 21:00 +0200 schrieb Martin Winkelmann:
+> Hello Andreas,
+> 
+> I am delighted to see, that the automatic take profit made it into the
+> trader already at this point. I am eager to check it out and test it.
+> 
+> The only problem is, that 0.9.9 wont let me pass the Database
+> connection settings window. When I hit the login button, nothing
+> happens. I also changed the driver selection to no effect. 
+> 
+> So far, I always simply unpacked the binaries and double clicked on
+> the manticore-trader.jar. Do I have to recompile it or do something
+> else? I am using Windows XP SP3. Java is Version 6.20.
+> 
+> Best regards,
+> Martin 
+> 
+> 2010/5/19 Andreas Reichel <andreas at manticore-projects.com>
+>         Dear All!
+>         
+>         This new version introduces Trailing Stop Loss and Automatic
+>         Take
+>         Profit, which can be activated inside the position dialog.
+>         
+>         Furthermore on the download-page there are packages with the
+>         intraday-quotes of the last 7 days for some instruments. You
+>         can import
+>         these into the manticore-trader in order to trade bigger time
+>         frames.
+>         Quotes for different instruments or time frames will be
+>         provided on
+>         demand.
+>         
+>         For best performance, we changed to the free database system
+>         H2 (see
+>         also the Changelog).
+>         
+>         Happy trades using Version 0.9.9.
+>         
+>         Best regards
+>         Andreas
+>         
+>         
+>         
+>         
+>         _______________________________________________
+>         Manticore-trader mailing list
+>         Manticore-trader at lists.berlios.de
+>         https://lists.berlios.de/mailman/listinfo/manticore-trader
+> 
+
+
+
+
+
+From m.p.winkelmann at gmail.com  Sat May 22 11:27:48 2010
+From: m.p.winkelmann at gmail.com (Martin Winkelmann)
+Date: Sat, 22 May 2010 11:27:48 +0200
+Subject: [Manticore-trader] (no subject)
+Message-ID: <AANLkTikTbEVIyWIBOKqtAy4Ixq8-Xp9nIjlcyoEp_f1X@mail.gmail.com>
+
+Dear Andreas,
+
+my thanks for you quick reply - everything looks to work perfectly now. Next
+week I will probably do a couple of trading tests and I am excited to see,
+how everything works out.
+
+Another questions though:
+
+1. Are the stop loss and take profit thresholds calculated and initiated
+from the underlying or from the Zertifikat itself? Because if its the
+Zertifikat itself, one has to take the spread into consideration, which, at
+leverage 10 for example, makes up for 0,16% already. Imagine, you have a
+stop loss of 0,2% in place, then the spread alone already takes up most of
+it. Or is the underlying the measurement?
+
+2. In what running state does the program need to be kept in order to able
+to stop losses and take profits automatically? Does the order form need to
+be kept open? Does the program automatically reconnect and takes up work
+again, when internet connection is lost temporarily?
+
+3. When the automatic take profit option is activated and the take profit
+threshold is actually reached, but the selling order does not go through -
+does the program automatically reinstate the stop loss order again after a
+while?
+
+Thanks so much for this awesome program!
+Martin
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/manticore-trader/attachments/20100522/a79d355c/attachment.html>
+
+From andreas at manticore-projects.com  Sat May 22 18:21:05 2010
+From: andreas at manticore-projects.com (Andreas Reichel)
+Date: Sat, 22 May 2010 18:21:05 +0200
+Subject: [Manticore-trader] manticore-trader version 0.9.9 released
+In-Reply-To: <mailman.25.1274522404.12927.manticore-trader@lists.berlios.de>
+References: <mailman.25.1274522404.12927.manticore-trader@lists.berlios.de>
+Message-ID: <1274545265.2971.25.camel@localhost>
+
+Martin, 
+
+you are more than welcome!
+I updated the documentation
+http://www.manticore-projects.com/content/de/documentation.htm in order
+to reflect the new features. Will translate it into English as soon as
+possible.
+
+> 1. Are the stop loss and take profit thresholds calculated and initiated
+> from the underlying or from the Zertifikat itself? Because if its the
+> Zertifikat itself, one has to take the spread into consideration, which, at
+> leverage 10 for example, makes up for 0,16% already. Imagine, you have a
+> stop loss of 0,2% in place, then the spread alone already takes up most of
+> it. Or is the underlying the measurement?
+
+At the moment the mechanism is simple: the threshold is related to the
+highest price of the warrant since the position was opened. On Thursday
+I recognized already this might not be accurate as it ignores the
+leverage of the warrant. I think we have to multiply the trailing stop
+loss ratio with the leverage of the warrant. In any way the spread is
+recognized already.
+
+In general I feel the solution of using threshold is just a temporary
+quick fix.I would like to prefer a solution when the last resistance of
+the underyling is used to adjust the stop-loss. But this gives a messy
+dependency to the chart module which I would like to avoid.
+
+
+> 2. In what running state does the program need to be kept in order to able
+> to stop losses and take profits automatically? Does the order form need to
+> be kept open? Does the program automatically reconnect and takes up work
+> again, when internet connection is lost temporarily?
+
+The auto TP and the trailing stop loss is just a kind of emulation. The
+program receive new quotes and adjusts the existing orders accordingly.
+This means, the manticore-trader needs to run in order to adjust the
+orders. The execution of the order is independent from the
+manticore-trader.
+
+In case the connection gets lost, it really depends on the
+circumstances. Most times everything continues after short breakage.
+Sometimes the push quote stream hangs. Then you need to push the refresh
+button.
+In the worst case just restart the program. The open positions are
+stored and will be updated as soon as you start the manticore-trader.
+
+Please note: you stop-loss is always safe, as its execution does not
+depend on manticore-trader. So the worst case is the stop loss is not
+adjusted while your position is in the profit already and finally the
+original stop loss is executed when the price goes down.
+
+> 3. When the automatic take profit option is activated and the take profit
+> threshold is actually reached, but the selling order does not go through -
+> does the program automatically reinstate the stop loss order again after a
+> while?
+
+I often go for a walk outside with open positions and I often have power
+line or internet breakage -- so I programmed everything as safe as
+possible. In fact, auto take profit does not issue a sale-order, but
+adjust the existing SL-order to the target. Either the broker accepts
+the order or the original SL-order still exists otherwise. This way your
+position is never in a state of not being secured by a SL.
+
+Also you can push "set SL to entry" twice: the first time (when SL is
+less than entry) SL is adjusted onto entry, the second time (when SL >=
+entry) SL is set to last market price. This way you can limit the risk
+to the original target but still maintain a small chance of even more
+profit.
+
+> 
+> Thanks so much for this awesome program!
+> Martin
+
+With your kind feedback we can improve it even more. Please do not
+hesitate to contact me in case of any issue! Best regards
+
+Andreas
+
+
+
+
+

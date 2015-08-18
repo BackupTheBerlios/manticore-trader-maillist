@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Manticore-trader] manticore-trader version 0.9.9 released
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/manticore-trader/2010-May/index.html" >
+   <LINK REL="made" HREF="mailto:manticore-trader%40lists.berlios.de?Subject=Re%3A%20%5BManticore-trader%5D%20manticore-trader%20version%200.9.9%20released&In-Reply-To=%3C1274405053.3107.40.camel%40dhcppc0%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000001.html">
+   <LINK REL="Next"  HREF="000003.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Manticore-trader] manticore-trader version 0.9.9 released</H1>
+    <B>Andreas Reichel</B> 
+    <A HREF="mailto:manticore-trader%40lists.berlios.de?Subject=Re%3A%20%5BManticore-trader%5D%20manticore-trader%20version%200.9.9%20released&In-Reply-To=%3C1274405053.3107.40.camel%40dhcppc0%3E"
+       TITLE="[Manticore-trader] manticore-trader version 0.9.9 released">andreas at manticore-projects.com
+       </A><BR>
+    <I>Fri May 21 03:24:13 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000001.html">[Manticore-trader] manticore-trader version 0.9.9
+</A></li>
+        <LI>Next message: <A HREF="000003.html">[Manticore-trader] (no subject)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2">[ date ]</a>
+              <a href="thread.html#2">[ thread ]</a>
+              <a href="subject.html#2">[ subject ]</a>
+              <a href="author.html#2">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear Martin,
+
+this problem is related to the change of the database system.
+manticore-trader uses H2 now, which is much (much, much) faster than
+HSQLDB. I tested it carefully and was very impressed.
+
+Of course there is now a problem, when you use your saved settings.
+Please adjust the database-settings to:
+
+classname = org.h2.JDBCDriver
+connectionUrlStr = jdbc:h2:file:${user.home}manticore-trader2
+
+Replace ${user.home} with your home directory or any other directory,
+where you like to store the database.
+
+If this is too complicated, please just move the file settings.xml in
+your home-directory into settings.xml.bak and start the program then.
+It will use the predefined settings, which you can save via the file
+menu.
+
+If it still does not work, please send me the output of the shell:
+* open a shell (e.g. command.com)
+* change to the directory where you have manticore-trader.jar
+* run java -jar manticore-trader.jar there
+* copy the output of the shell into the e-mail
+
+Thank you and best regards.
+Andreas
+
+BTW: I released version 0.9.9.1 yesterday, which fixes a small but nasty
+bug. Give it a try please.
+
+Am Donnerstag, den 20.05.2010, 21:00 +0200 schrieb Martin Winkelmann:
+&gt;<i> Hello Andreas,
+</I>&gt;<i> 
+</I>&gt;<i> I am delighted to see, that the automatic take profit made it into the
+</I>&gt;<i> trader already at this point. I am eager to check it out and test it.
+</I>&gt;<i> 
+</I>&gt;<i> The only problem is, that 0.9.9 wont let me pass the Database
+</I>&gt;<i> connection settings window. When I hit the login button, nothing
+</I>&gt;<i> happens. I also changed the driver selection to no effect. 
+</I>&gt;<i> 
+</I>&gt;<i> So far, I always simply unpacked the binaries and double clicked on
+</I>&gt;<i> the manticore-trader.jar. Do I have to recompile it or do something
+</I>&gt;<i> else? I am using Windows XP SP3. Java is Version 6.20.
+</I>&gt;<i> 
+</I>&gt;<i> Best regards,
+</I>&gt;<i> Martin 
+</I>&gt;<i> 
+</I>&gt;<i> 2010/5/19 Andreas Reichel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/manticore-trader">andreas at manticore-projects.com</A>&gt;
+</I>&gt;<i>         Dear All!
+</I>&gt;<i>         
+</I>&gt;<i>         This new version introduces Trailing Stop Loss and Automatic
+</I>&gt;<i>         Take
+</I>&gt;<i>         Profit, which can be activated inside the position dialog.
+</I>&gt;<i>         
+</I>&gt;<i>         Furthermore on the download-page there are packages with the
+</I>&gt;<i>         intraday-quotes of the last 7 days for some instruments. You
+</I>&gt;<i>         can import
+</I>&gt;<i>         these into the manticore-trader in order to trade bigger time
+</I>&gt;<i>         frames.
+</I>&gt;<i>         Quotes for different instruments or time frames will be
+</I>&gt;<i>         provided on
+</I>&gt;<i>         demand.
+</I>&gt;<i>         
+</I>&gt;<i>         For best performance, we changed to the free database system
+</I>&gt;<i>         H2 (see
+</I>&gt;<i>         also the Changelog).
+</I>&gt;<i>         
+</I>&gt;<i>         Happy trades using Version 0.9.9.
+</I>&gt;<i>         
+</I>&gt;<i>         Best regards
+</I>&gt;<i>         Andreas
+</I>&gt;<i>         
+</I>&gt;<i>         
+</I>&gt;<i>         
+</I>&gt;<i>         
+</I>&gt;<i>         _______________________________________________
+</I>&gt;<i>         Manticore-trader mailing list
+</I>&gt;<i>         <A HREF="https://lists.berlios.de/mailman/listinfo/manticore-trader">Manticore-trader at lists.berlios.de</A>
+</I>&gt;<i>         <A HREF="https://lists.berlios.de/mailman/listinfo/manticore-trader">https://lists.berlios.de/mailman/listinfo/manticore-trader</A>
+</I>&gt;<i> 
+</I>
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000001.html">[Manticore-trader] manticore-trader version 0.9.9
+</A></li>
+	<LI>Next message: <A HREF="000003.html">[Manticore-trader] (no subject)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2">[ date ]</a>
+              <a href="thread.html#2">[ thread ]</a>
+              <a href="subject.html#2">[ subject ]</a>
+              <a href="author.html#2">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/manticore-trader">More information about the Manticore-trader
+mailing list</a><br>
+</body></html>

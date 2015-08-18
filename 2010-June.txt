@@ -1,0 +1,58 @@
+From andreas at manticore-projects.com  Tue Jun  1 13:43:43 2010
+From: andreas at manticore-projects.com (Andreas Reichel)
+Date: Tue, 01 Jun 2010 13:43:43 +0200
+Subject: [Manticore-trader] manticore-trader 0.9.9.3 released
+Message-ID: <1275392623.2977.290.camel@dhcppc0>
+
+Dear All,
+
+beside some small, but important fixes, manticore-trader adopts the new
+website of Deutsche Bank. So you can search for WaveXLL again.
+
+I plan to move the website parser settings into a single file stored on
+the web server where manticore-trader downloads it automatically from in
+order to keep you up to date.
+
+Also I started some drafts to support more instruments like shares,
+plain vanilla warrants, discount and bonus warrant. These features will
+go into the development branch, as soon as version 1.0 is released next
+week.
+
+Best regards
+Andreas
+
+
+
+From andreas at manticore-projects.com  Fri Jun  4 12:59:11 2010
+From: andreas at manticore-projects.com (Andreas Reichel)
+Date: Fri, 04 Jun 2010 12:59:11 +0200
+Subject: [Manticore-trader] Stable release manticore-trader 1.0
+Message-ID: <1275649151.2977.352.camel@dhcppc0>
+
+Dear All,
+
+We proudly present the stable release 1.0 of manticore-trader, which is
+ready for daily use and heavy trading activities.
+
+While we will maintain this stable release we will focus our development
+on the development branch now. Expect many exciting new features like
+trading of shares, plain vanilla and discount/bonus warrants. Please
+take a look into our to-do list and do not forget to write down your
+requests. 
+
+For this release we moved all parsing related information into a new
+configuration file, which is stored on the webserver. The program ill
+fetch any necessary update automatically now in order to decrease update
+cycle. New new code of WebsiteParser class is very clean and beautiful.
+
+Also the was a heavy test of the DIRECT orders (I spent almost 20
+transactions on it!), which should work without any problem now.
+
+Cheers!
+Andreas
+
+
+
+
+
+
